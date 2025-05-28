@@ -11,16 +11,16 @@
         @vite('resources/js/app.js')
     </head>
 
-    <body class="bg-gray-100">
-        <header class="p-5 border-b bg-white shadow">
+    <body class="bg-gray-500"><!--bg-gray-100-->
+        <header class="p-5 border-b bg-gray-400 shadow"><!--bg-white-->
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-bold">
                     <a href="/">DevStagram</a>
                 </h1>
 
                 <nav class="flex gap-2 items-center">
-                    <a class="uppercase text-gray-600 text-sm" href="#">Login</a>
-                    <a class="uppercase text-gray-600 text-sm" href="/crear-cuenta">Crear Cuenta</a>
+                    <a class="uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
+                    <a class="uppercase text-gray-600 text-sm" href="{{ route('register')}}">Crear Cuenta</a>
                 </nav>
             </div>
         </header>
