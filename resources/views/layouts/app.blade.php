@@ -11,16 +11,31 @@
         @vite('resources/js/app.js')
     </head>
 
-    <body class="bg-gray-500"><!--bg-gray-100-->
-        <header class="p-5 border-b bg-gray-400 shadow"><!--bg-white-->
+    <body class="bg-gray-100"><!--bg-gray-500-->
+        <header class="p-5 border-b bg-white shadow"><!--bg-white-->
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-bold">
                     <a href="/">DevStagram</a>
                 </h1>
 
                 <nav class="flex gap-2 items-center">
-                    <a class="uppercase text-gray-600 text-sm" href="{{route('login')}}">Login</a>
-                    <a class="uppercase text-gray-600 text-sm" href="{{ route('register')}}">Crear Cuenta</a>
+                    @auth<!--Se muestra a los usuarios Autenticados-->
+                        <a class="uppercase text-gray-600 text-sm font-bold">Bienvenido
+                            <span class="font-normal">{{Auth::user()->name}}</span>
+                        </a>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="uppercase text-gray-600 text-sm font-bold">
+                                Cerrar Sesión
+                            </button>
+                        </form>
+                    @endauth
+
+                    @guest <!--Se muestra a los usuarios no autenticados-->
+                        <a class="uppercase text-gray-600 text-sm font-bold" href="{{route('login')}}">Login</a>
+                        <a class="uppercase text-gray-600 text-sm font-bold" href="{{ route('register')}}">Crear Cuenta</a>
+                    @endguest
+
                 </nav>
             </div>
         </header>
