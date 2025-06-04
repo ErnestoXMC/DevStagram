@@ -20,8 +20,8 @@
 
                 <nav class="flex gap-2 items-center">
                     @auth<!--Se muestra a los usuarios Autenticados-->
-                        <a class="uppercase text-gray-600 text-sm font-bold">Bienvenido
-                            <span class="font-normal">{{Auth::user()->name}}</span>
+                        <a class="text-gray-600 font-bold">Bienvenido
+                            <span class="font-normal">{{$user->username}}</span>
                         </a>
                         <form action="{{route('logout')}}" method="POST">
                             @csrf
